@@ -57,10 +57,10 @@ if ticker:
                 st.error(f"ERROR!Something Went Wrong{r}")
             st.subheader(f"🕰️   Stock Price Data between the selected dates for {ticker}")
             st.line_chart(hist['Close'])
-            st.subheader(f"📦  The Stock Price and volume overview for {ticker}".title())
             hist["MA20"] = hist['Close'].rolling(window=20).mean()  # 20-day Moving Average
             st.subheader(f"📊 Moving Average (20-day) for {ticker}")
             st.line_chart(hist[["Close", "MA20"]])
+            st.subheader(f"📦  The Stock Price and volume overview for {ticker}".title())
             st.line_chart(hist['Volume'])
             st.success("✅ Fetched data successfully!")
             st.markdown("---")
